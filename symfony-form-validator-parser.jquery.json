@@ -1,0 +1,28 @@
+{
+  "name": "symfony-form-validator-parser",
+  "title": "Symfony bichotll/FormValidationBundle js parser",
+  "description": "It creates the form from the FormValidationBundle json form provided",
+  "version": "0.0.1",
+  "homepage": "",
+  "author": {
+    "name": "bichotll",
+    "url": "https://github.com/bichotll"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": "",
+  "licenses": [
+    {
+      "type": "Apache2",
+      "url": "http://opensource.org/licenses/Apache2"
+    }
+  ],
+  "dependencies": {
+    "jquery": "~1.11.1"
+  },
+  "keywords": [
+    "jquery-plugin"
+  ]
+}
