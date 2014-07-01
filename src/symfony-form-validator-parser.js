@@ -10,14 +10,6 @@
 
     'use strict';
 
-//  // Collection method.
-//  $.fn.awesome = function () {
-//    return this.each(function (i) {
-//      // Do something awesome to each selected element.
-//      $(this).html('awesome' + i);
-//    });
-//  };
-
     // Static method.
     $.sfvp = function(options) {
         // Override default options with passed-in options.
@@ -28,18 +20,13 @@
             throw "No object inserted";
         }
 
-        var generatedForm = $("<form></form>");
+        var generatedForm = $('<form role="form" ></form>');
 
-        //drill the array object
-        $.each(options.object, function(key, value) {
-            //it's first element and a form
-            if (key === 0 && !checkField(value)) {
-                generatedForm.addClass('sfvp-form');
-                return true;
-            } else if (checkField(value)) {
-                generatedForm.append(addField(value));
-            }
-        });
+        //createFields
+        createFields(options, generatedForm);
+
+        //addData
+        setData(options, generatedForm);
 
         // Return something awesome.
         return generatedForm;
@@ -49,10 +36,11 @@
     $.sfvp.options = {
         object: ''
     };
-    
+
     /**
      * Already checked paths. Workaround for repeated fields
      * 
+     * @private
      * @type Array
      */
     var checkedPaths = [];
@@ -68,6 +56,7 @@
     /**
      * Field types to avoid the sub paths/fields
      * 
+     * @private
      * @type Array
      */
     var subChoiseAvoidedTypes = [
@@ -76,16 +65,38 @@
         'datetime',
         'birthday'
     ];
-    
+
     /**
      * Names to avoid the form containers
      * 
+     * @private
      * @type Array
      */
     var formContainerNames = [
         '_form',
         'form_'
     ];
+    
+    /**
+     * Create all the fields
+     * 
+     * @private
+     * @param {type} options
+     * @param {type} generatedForm
+     * @returns {undefined}
+     */
+    function createFields(options, generatedForm) {
+        //drill the array object
+        $.each(options.object, function(key, value) {
+            //it's first element and a form
+            if (key === 0 && !checkField(value)) {
+                generatedForm.addClass('sfvp-form');
+                return true;
+            } else if (checkField(value)) {
+                generatedForm.append(addField(value));
+            }
+        });
+    }
 
     /**
      * Checks if it's a field
@@ -100,9 +111,9 @@
             return false;
         }
         checkedPaths.push(field.fullPathName);
-        
+
         if (field.fullPathName[field.fullPathName.length - 1] === ']') {
-            
+
             //check if it's just a form container
             var isFormContainer = $.grep(formContainerNames, function(n) {
                 return field.type.indexOf(n) > -1;
@@ -156,6 +167,15 @@
             el.data('repeated', true);
             el.attr('type', 'hidden');
         }
+        if (field.type === 'checkbox') {
+            el.attr('type', 'checkbox');
+        }
+        if (field.type === 'radio') {
+            el.attr('type', 'radio');
+        }
+        if (field.type === 'file') {
+            el.attr('type', 'file');
+        }
         if (field.options.required === true) {
             el.attr('required', true);
         }
@@ -164,13 +184,57 @@
         el.attr('name', field.fullPathName);
         el.attr('id', field.fullPathName);
 
-        return el;
+        //add constraints data
+        el.data('constraints', field.constraints);
+
+        //add all the options
+        el.data('options', field.options);
+
+        //create div container n label
+        var label = $('<label>' + field.pathName[0] + '</label>');
+        label.attr('for', field.fullPathName);
+        var divFormGroup = $('<div class="form-group"></div>');
+        divFormGroup.append(label);
+        divFormGroup.append(el);
+
+        //return the field group
+        return divFormGroup;
     }
 
-//  // Custom selector.
-//  $.expr[':'].sfvp = function (elem) {
-//    // Is this element awesome?
-//    return $(elem).text().indexOf('sfvp') !== -1;
-//  };
+    /**
+     * Set data
+     * 
+     * @private
+     * @param {type} options
+     * @param {type} generatedForm
+     * @returns {undefined}
+     */
+    function setData(options, generatedForm) {
+        function doDrill(data) {
+            $.each(data, function(key, value) {
+                id += '[' + key + ']';
+                if (Object.prototype.toString.call(value) !== '[object String]' && value.length !== 0) {
+                    doDrill(value);
+                } else {
+                    setElementData(value);
+                }
+            });
+        }
+
+        function setElementData(value) {
+            $(generatedForm).find('[name="' + id + '"]').attr('value', value);
+            id = options.object[0].type;
+        }
+        
+        //check that there is data
+        if (typeof options.object[0].options.data === 'undefined' && !options.object[0].options.data.length){
+            return;
+        }
+        
+        var id = options.object[0].type;
+        
+        //drill deep, find its element and fill it
+        doDrill(options.object[0].options.data);
+    }
 
 }(jQuery));

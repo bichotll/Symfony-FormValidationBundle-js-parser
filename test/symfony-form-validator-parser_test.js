@@ -42,295 +42,181 @@
 
     test('json to form', function() {
 
-        $.testJson = [
-            {
-                "constraints": [
-                ],
+        $.testJson = [{
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": {
+                    "data": {
+                        "test": "value test",
+                        "test2": "value test",
+                        "simpleForm": {
+                            "name": "some more data"
+                        }
+                    }
+                },
+                "pathName": ["bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[",
                 "type": "bic_formvalidationbundle_inner_form",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "test",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["test", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[test]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "test2",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["test2", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[test2]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "simpleForm",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["simpleForm", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[simpleForm]",
                 "type": "bic_formvalidationbundle_simple",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "simpleForm",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["simpleForm", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[simpleForm]",
                 "type": "bic_formvalidationbundle_simple",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "name",
-                    "simpleForm",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["name", "simpleForm", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[simpleForm][name]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "field",
-                    "simpleForm",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["field", "simpleForm", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[simpleForm][field]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased]",
                 "type": "bic_formvalidationbundle_model_based",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased]",
                 "type": "bic_formvalidationbundle_model_based",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value should not be blank.",
-                            "groups": [
-                                "group1"
-                            ],
+                            "groups": ["group1"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\NotBlank"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": true
                 },
-                "pathName": [
-                    "notBlank",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["notBlank", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][notBlank]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value should not be null.",
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\NotNull"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": true
                 },
-                "pathName": [
-                    "notNull",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["notNull", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][notNull]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value should be true.",
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\True"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": true
                 },
-                "pathName": [
-                    "true",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["true", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][true]",
                 "type": "checkbox",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "The value {{ value }} is not a valid {{ type }}.",
                             "type": "integer",
-                            "groups": [
-                                "group1"
-                            ],
+                            "groups": ["group1"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Type"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false
                 },
-                "pathName": [
-                    "type",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["type", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][type]",
                 "type": "integer",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value is not a valid email address.",
                             "checkMX": false,
                             "checkHost": false,
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Email"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false
                 },
-                "pathName": [
-                    "email",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["email", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][email]",
                 "type": "email",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "maxMessage": "This value is too long. It should have {{ limit }} character or less.|This value is too long. It should have {{ limit }} characters or less.",
                             "minMessage": "This value is too short. It should have {{ limit }} character or more.|This value is too short. It should have {{ limit }} characters or more.",
                             "exactMessage": "This value should have exactly {{ limit }} character.|This value should have exactly {{ limit }} characters.",
                             "max": 50,
                             "min": 2,
                             "charset": "UTF-8",
-                            "groups": [
-                                "group2"
-                            ],
+                            "groups": ["group2"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Length"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
@@ -338,122 +224,75 @@
                     "max_length": 50,
                     "pattern": ".{2,}"
                 },
-                "pathName": [
-                    "length",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["length", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][length]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value is not a valid URL.",
-                            "protocols": [
-                                "http",
-                                "https"
-                            ],
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "protocols": ["http", "https"],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Url"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false
                 },
-                "pathName": [
-                    "url",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["url", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][url]",
                 "type": "url",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value is not valid.",
                             "pattern": "\/^\\w+\/",
                             "htmlPattern": null,
                             "match": true,
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Regex"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false,
                     "pattern": "\\w+.*"
                 },
-                "pathName": [
-                    "regex",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["regex", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][regex]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "version": "4",
                             "message": "This is not a valid IP address.",
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Ip"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false
                 },
-                "pathName": [
-                    "ip",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["ip", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][ip]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "minMessage": "This value should be {{ limit }} or more.",
                             "maxMessage": "This value should be {{ limit }} or less.",
                             "invalidMessage": "This value should be a valid number.",
                             "min": 120,
                             "max": 180,
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Range"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
@@ -461,103 +300,63 @@
                     "max_length": 3,
                     "pattern": ".{3,}"
                 },
-                "pathName": [
-                    "range",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["range", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][range]",
                 "type": "number",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value should be equal to {{ compared_value }}.",
                             "value": 20,
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\EqualTo"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false
                 },
-                "pathName": [
-                    "equalTo",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["equalTo", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][equalTo]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value is not a valid date.",
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Date"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "input": "string",
                     "required": false
                 },
-                "pathName": [
-                    "date",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["date", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][date]",
                 "type": "date",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value is not a valid date.",
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Date"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "input": "string",
                     "required": false
                 },
-                "pathName": [
-                    "date",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["date", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][date]",
                 "type": "date",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "error_bubbling": true,
@@ -578,20 +377,12 @@
                     "required": false,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "year",
-                    "date",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["year", "date", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][date][year]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "error_bubbling": true,
@@ -613,20 +404,12 @@
                     "required": false,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "month",
-                    "date",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["month", "date", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][date][month]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "error_bubbling": true,
@@ -667,25 +450,14 @@
                     "required": false,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "day",
-                    "date",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["day", "date", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][date][day]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
-                            "choices": [
-                                "male",
-                                "female"
-                            ],
+                    "Default": [{
+                            "choices": ["male", "female"],
                             "callback": null,
                             "multiple": false,
                             "strict": false,
@@ -695,37 +467,23 @@
                             "multipleMessage": "One or more of the given values is invalid.",
                             "minMessage": "You must select at least {{ limit }} choice.|You must select at least {{ limit }} choices.",
                             "maxMessage": "You must select at most {{ limit }} choice.|You must select at most {{ limit }} choices.",
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Choice"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false
                 },
-                "pathName": [
-                    "choice",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["choice", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][choice]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "maxSize": "1024k",
-                            "mimeTypes": [
-                                "application\/pdf",
-                                "application\/x-pdf"
-                            ],
+                            "mimeTypes": ["application\/pdf", "application\/x-pdf"],
                             "notFoundMessage": "The file could not be found.",
                             "notReadableMessage": "The file is not readable.",
                             "maxSizeMessage": "The file is too large ({{ size }} {{ suffix }}). Allowed maximum size is {{ limit }} {{ suffix }}.",
@@ -738,376 +496,196 @@
                             "uploadCantWriteErrorMessage": "Cannot write temporary file to disk.",
                             "uploadExtensionErrorMessage": "A PHP extension caused the upload to fail.",
                             "uploadErrorMessage": "The file could not be uploaded.",
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\File"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false
                 },
-                "pathName": [
-                    "file",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["file", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][file]",
                 "type": "file",
-                "validationGroups": [
-                ]
-            },
-            {
+                "validationGroups": []
+            }, {
                 "constraints": {
-                    "Default": [
-                        {
+                    "Default": [{
                             "message": "This value is not a valid currency.",
-                            "groups": [
-                                "Default",
-                                "Model"
-                            ],
+                            "groups": ["Default", "Model"],
                             "class": "Symfony\\Component\\Validator\\Constraints\\Currency"
-                        }
-                    ]
+                        }]
                 },
                 "dataClass": "Bic\\FormValidationBundle\\Tests\\Model\\Model",
                 "options": {
                     "required": false
                 },
-                "pathName": [
-                    "currency",
-                    "modelBased",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["currency", "modelBased", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[modelBased][currency]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes]",
                 "type": "bic_formvalidationbundle_simple",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes]",
                 "type": "bic_formvalidationbundle_simple",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "text",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["text", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][text]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "textarea",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["textarea", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][textarea]",
                 "type": "textarea",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "email",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["email", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][email]",
                 "type": "email",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "integer",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["integer", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][integer]",
                 "type": "integer",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "money",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["money", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][money]",
                 "type": "money",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "number",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["number", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][number]",
                 "type": "number",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "password",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["password", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][password]",
                 "type": "password",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "percent",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["percent", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][percent]",
                 "type": "percent",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "search",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["search", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][search]",
                 "type": "search",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "url",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["url", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][url]",
                 "type": "url",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "choice",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["choice", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][choice]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "country",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["country", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][country]",
                 "type": "country",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "language",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["language", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][language]",
                 "type": "language",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "locale",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["locale", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][locale]",
                 "type": "locale",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "timezone",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["timezone", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][timezone]",
                 "type": "timezone",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "currency",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["currency", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][currency]",
                 "type": "currency",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "date",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["date", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][date]",
                 "type": "date",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "date",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["date", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][date]",
                 "type": "date",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -1128,20 +706,12 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "year",
-                    "date",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["year", "date", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][date][year]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -1163,20 +733,12 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "month",
-                    "date",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["month", "date", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][date][month]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -1217,52 +779,28 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "day",
-                    "date",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["day", "date", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][date][day]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime]",
                 "type": "datetime",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime]",
                 "type": "datetime",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "translation_domain": null,
@@ -1270,20 +808,12 @@
                     "input": "array",
                     "error_bubbling": true
                 },
-                "pathName": [
-                    "date",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["date", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][date]",
                 "type": "date",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "translation_domain": null,
@@ -1291,20 +821,12 @@
                     "input": "array",
                     "error_bubbling": true
                 },
-                "pathName": [
-                    "date",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["date", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][date]",
                 "type": "date",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -1325,21 +847,12 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "year",
-                    "date",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["year", "date", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][date][year]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -1361,21 +874,12 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "month",
-                    "date",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["month", "date", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][date][month]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -1416,21 +920,12 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "day",
-                    "date",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["day", "date", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][date][day]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "translation_domain": null,
@@ -1440,20 +935,12 @@
                     "input": "array",
                     "error_bubbling": true
                 },
-                "pathName": [
-                    "time",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["time", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][time]",
                 "type": "time",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "translation_domain": null,
@@ -1463,346 +950,100 @@
                     "input": "array",
                     "error_bubbling": true
                 },
-                "pathName": [
-                    "time",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["time", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][time]",
                 "type": "time",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
-                    "choices": [
-                        "00",
-                        "01",
-                        "02",
-                        "03",
-                        "04",
-                        "05",
-                        "06",
-                        "07",
-                        "08",
-                        "09",
-                        "10",
-                        "11",
-                        "12",
-                        "13",
-                        "14",
-                        "15",
-                        "16",
-                        "17",
-                        "18",
-                        "19",
-                        "20",
-                        "21",
-                        "22",
-                        "23"
-                    ],
+                    "choices": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                     "empty_value": null,
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "hour",
-                    "time",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["hour", "time", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][time][hour]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
-                    "choices": [
-                        "00",
-                        "01",
-                        "02",
-                        "03",
-                        "04",
-                        "05",
-                        "06",
-                        "07",
-                        "08",
-                        "09",
-                        "10",
-                        "11",
-                        "12",
-                        "13",
-                        "14",
-                        "15",
-                        "16",
-                        "17",
-                        "18",
-                        "19",
-                        "20",
-                        "21",
-                        "22",
-                        "23",
-                        "24",
-                        "25",
-                        "26",
-                        "27",
-                        "28",
-                        "29",
-                        "30",
-                        "31",
-                        "32",
-                        "33",
-                        "34",
-                        "35",
-                        "36",
-                        "37",
-                        "38",
-                        "39",
-                        "40",
-                        "41",
-                        "42",
-                        "43",
-                        "44",
-                        "45",
-                        "46",
-                        "47",
-                        "48",
-                        "49",
-                        "50",
-                        "51",
-                        "52",
-                        "53",
-                        "54",
-                        "55",
-                        "56",
-                        "57",
-                        "58",
-                        "59"
-                    ],
+                    "choices": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"],
                     "empty_value": null,
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "minute",
-                    "time",
-                    "datetime",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["minute", "time", "datetime", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][datetime][time][minute]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "time",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["time", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][time]",
                 "type": "time",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "time",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["time", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][time]",
                 "type": "time",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
-                    "choices": [
-                        "00",
-                        "01",
-                        "02",
-                        "03",
-                        "04",
-                        "05",
-                        "06",
-                        "07",
-                        "08",
-                        "09",
-                        "10",
-                        "11",
-                        "12",
-                        "13",
-                        "14",
-                        "15",
-                        "16",
-                        "17",
-                        "18",
-                        "19",
-                        "20",
-                        "21",
-                        "22",
-                        "23"
-                    ],
+                    "choices": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23"],
                     "empty_value": null,
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "hour",
-                    "time",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["hour", "time", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][time][hour]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
-                    "choices": [
-                        "00",
-                        "01",
-                        "02",
-                        "03",
-                        "04",
-                        "05",
-                        "06",
-                        "07",
-                        "08",
-                        "09",
-                        "10",
-                        "11",
-                        "12",
-                        "13",
-                        "14",
-                        "15",
-                        "16",
-                        "17",
-                        "18",
-                        "19",
-                        "20",
-                        "21",
-                        "22",
-                        "23",
-                        "24",
-                        "25",
-                        "26",
-                        "27",
-                        "28",
-                        "29",
-                        "30",
-                        "31",
-                        "32",
-                        "33",
-                        "34",
-                        "35",
-                        "36",
-                        "37",
-                        "38",
-                        "39",
-                        "40",
-                        "41",
-                        "42",
-                        "43",
-                        "44",
-                        "45",
-                        "46",
-                        "47",
-                        "48",
-                        "49",
-                        "50",
-                        "51",
-                        "52",
-                        "53",
-                        "54",
-                        "55",
-                        "56",
-                        "57",
-                        "58",
-                        "59"
-                    ],
+                    "choices": ["00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"],
                     "empty_value": null,
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "minute",
-                    "time",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["minute", "time", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][time][minute]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "birthday",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["birthday", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][birthday]",
                 "type": "birthday",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "birthday",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["birthday", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][birthday]",
                 "type": "birthday",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -1933,20 +1174,12 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "year",
-                    "birthday",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["year", "birthday", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][birthday][year]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -1968,20 +1201,12 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "month",
-                    "birthday",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["month", "birthday", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][birthday][month]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": true,
@@ -2022,242 +1247,131 @@
                     "required": true,
                     "translation_domain": null
                 },
-                "pathName": [
-                    "day",
-                    "birthday",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["day", "birthday", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][birthday][day]",
                 "type": "choice",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "checkbox",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["checkbox", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][checkbox]",
                 "type": "checkbox",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "file",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["file", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][file]",
                 "type": "file",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "radio",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["radio", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][radio]",
                 "type": "radio",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "collection",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["collection", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][collection]",
                 "type": "collection",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "repeated",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["repeated", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][repeated]",
                 "type": "repeated",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "repeated",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["repeated", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][repeated]",
                 "type": "repeated",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": false,
                     "required": true
                 },
-                "pathName": [
-                    "first",
-                    "repeated",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["first", "repeated", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][repeated][first]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
                 "options": {
                     "error_bubbling": false,
                     "required": true
                 },
-                "pathName": [
-                    "second",
-                    "repeated",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "pathName": ["second", "repeated", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][repeated][second]",
                 "type": "text",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "hidden",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["hidden", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][hidden]",
                 "type": "hidden",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "button",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["button", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][button]",
                 "type": "button",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "reset",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["reset", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][reset]",
                 "type": "reset",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "submit",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["submit", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][submit]",
                 "type": "submit",
-                "validationGroups": [
-                ]
-            },
-            {
-                "constraints": [
-                ],
+                "validationGroups": []
+            }, {
+                "constraints": [],
                 "dataClass": null,
-                "options": [
-                ],
-                "pathName": [
-                    "form",
-                    "formTypes",
-                    "bic_formvalidationbundle_inner_form"
-                ],
+                "options": [],
+                "pathName": ["form", "formTypes", "bic_formvalidationbundle_inner_form"],
                 "fullPathName": "bic_formvalidationbundle_inner_form[formTypes][form]",
                 "type": "form",
-                "validationGroups": [
-                ]
-            }
-        ];
+                "validationGroups": []
+            }];
 
 //        var generatedForm = $.sfvp({
 //            object: $.testJson
 //        });
 
-        equal( 1, "1", "String '1' and number 1 have the same value" );
+        equal(1, "1", "String '1' and number 1 have the same value");
 
-        throws(function(){
-                    $.sfvp();
-                },
+        throws(function() {
+            $.sfvp();
+        },
                 "No object inserted",
                 "Checks the exception"
                 );

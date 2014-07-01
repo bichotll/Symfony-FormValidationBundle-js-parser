@@ -1,6 +1,5 @@
 {
   "name": "symfony-form-validator-parser",
-  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
     "qunit": "~1.12.0",
