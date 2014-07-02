@@ -176,6 +176,18 @@
         if (field.type === 'file') {
             el.attr('type', 'file');
         }
+        if (field.type === 'button') {
+            el.attr('type', 'button');
+            el.attr('value', field.pathName[0]);
+        }
+        if (field.type === 'reset') {
+            el.attr('type', 'reset');
+            el.attr('value', field.pathName[0]);
+        }
+        if (field.type === 'submit') {
+            el.attr('type', 'submit');
+            el.attr('value', field.pathName[0]);
+        }
         if (field.options.required === true) {
             el.attr('required', true);
         }
