@@ -62,7 +62,7 @@ $.get( "entity/getFormInfo", function( data ) {
 
 ## Release History
 
-###1.0.1
+###1.0.2
  - Parsed submit, reset and button properly
 
 ###1.0.0 
