@@ -64,6 +64,9 @@ $.get( "entity/getFormInfo", function( data ) {
 
 ## Release History
 
+###1.0.7 
+ - bug solved for avoided types
+
 ###1.0.6
  - Added formContainerNames and subChoiseAvoidedTypes as public options.
 

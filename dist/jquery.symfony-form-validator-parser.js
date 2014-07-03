@@ -122,7 +122,7 @@
             }
 
             //check if it's one of the subChoiceAvoidedTypes
-            if ($.inArray(field.type, $.sfvp.options.subChoiseAvoidedTypes) > -1) {
+            if ($.inArray(field.type, options.subChoiseAvoidedTypes) > -1) {
                 subChoiseAvoidedPaths.push(field.fullPathName);
             } else {
                 var isChoiseAvoided = $.grep(subChoiseAvoidedPaths, function(n) {
