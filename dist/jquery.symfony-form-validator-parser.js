@@ -234,7 +234,7 @@
         }
         
         //check that there is data
-        if (typeof options.object[0].options.data === 'undefined' && !options.object[0].options.data.length){
+        if (typeof options.object[0].options.data === 'undefined' || typeof options.object[0].options.data.length !== 'undefined' && !options.object[0].options.data.length) {
             return;
         }
         
