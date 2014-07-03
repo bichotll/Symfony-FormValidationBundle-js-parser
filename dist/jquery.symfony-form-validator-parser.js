@@ -1,6 +1,6 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-02
- * https://github.com/bichotll/symfony-form-validator-parser
- * Copyright (c) 2014 bichotll; Licensed Apache2 */
+/*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
+* https://github.com/bichotll/symfony-form-validator-parser
+* Copyright (c) 2014 bichotll; Licensed Apache2 */
 (function($) {
 
     'use strict';
@@ -71,7 +71,7 @@
         '_form',
         'form_'
     ];
-
+    
     /**
      * Create all the fields
      * 
@@ -171,6 +171,18 @@
         if (field.type === 'file') {
             el.attr('type', 'file');
         }
+        if (field.type === 'button') {
+            el.attr('type', 'button');
+            el.attr('value', field.pathName[0]);
+        }
+        if (field.type === 'reset') {
+            el.attr('type', 'reset');
+            el.attr('value', field.pathName[0]);
+        }
+        if (field.type === 'submit') {
+            el.attr('type', 'submit');
+            el.attr('value', field.pathName[0]);
+        }
         if (field.options.required === true) {
             el.attr('required', true);
         }
@@ -220,14 +232,14 @@
             $(generatedForm).find('[name="' + id + '"]').attr('value', value);
             id = options.object[0].type;
         }
-
+        
         //check that there is data
-        if (typeof options.object[0].options.data === 'undefined' || typeof options.object[0].options.data.length !== 'undefined' && !options.object[0].options.data.length) {
+        if (typeof options.object[0].options.data === 'undefined' && !options.object[0].options.data.length){
             return;
         }
-
+        
         var id = options.object[0].type;
-
+        
         //drill deep, find its element and fill it
         doDrill(options.object[0].options.data);
     }
