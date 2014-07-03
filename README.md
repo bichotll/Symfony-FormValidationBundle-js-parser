@@ -40,6 +40,8 @@ Not so much to explain. It just creates a complete html form object from the For
 
  - object: {Object} The FormValidationBundle object.
  - fillData: {boolean} (default: true) Maybe you do not want to fill the data.
+ - formContainerNames: {Array} (default: ['_form','form_']) Form container types that we don't have to create an field
+ - subChoiseAvoidedTypes: {Array} (default: ['time','date','datetime','birthday']) Symfony creates some sub-fields for time type fields. We avoid them. If you want them just set subChoiseAvoidedTypes to an empty array.
 
 
 ## Examples
@@ -61,6 +63,9 @@ $.get( "entity/getFormInfo", function( data ) {
 
 
 ## Release History
+
+###1.0.6
+ - Added formContainerNames and subChoiseAvoidedTypes as public options.
 
 ###1.0.2
  - Parsed submit, reset and button properly

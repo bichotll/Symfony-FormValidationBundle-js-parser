@@ -1,42 +1,62 @@
-/*
- * symfony-form-validator-parser
- * 
- *
- * Copyright (c) 2014 bichotll
- * Licensed under the Apache2 license.
- */
-
+/*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
+* https://github.com/bichotll/symfony-form-validator-parser
+* Copyright (c) 2014 bichotll; Licensed Apache2 */
 (function($) {
 
     'use strict';
-
     // Static method.
     $.sfvp = function(options) {
         // Override default options with passed-in options.
         options = $.extend({}, $.sfvp.options, options);
-
         //check if the object is passed
         if (options.object === '') {
             throw "No object inserted";
         }
 
         var generatedForm = $('<form role="form" ></form>');
-
         //createFields
         createFields(options, generatedForm);
-
         //addData
         setData(options, generatedForm);
-
         // Return something awesome.
         return generatedForm;
     };
-
-    // Static method default options.
+    /**
+     * Static method default options.
+     * 
+     * @public
+     */
     $.sfvp.options = {
-        object: ''
+        /**
+         * The form object
+         * 
+         * @public
+         */
+        object: '',
+        /**
+         * Names to avoid the form containers
+         * 
+         * @public
+         * @type Array
+         */
+        formContainerNames: [
+            '_form',
+            'form_'
+        ],
+        /**
+         * Field types to avoid the sub paths/fields
+         * 
+         * @private
+         * @type Array
+         */
+        subChoiseAvoidedTypes: [
+            'time',
+            'date',
+            'datetime',
+            'birthday'
+        ]
     };
-
+    
     /**
      * Already checked paths. Workaround for repeated fields
      * 
@@ -44,7 +64,7 @@
      * @type Array
      */
     var checkedPaths = [];
-
+    
     /**
      * Time paths. Used to don't drill the subChoise paths like time field types.
      * 
@@ -52,30 +72,6 @@
      * @type array
      */
     var subChoiseAvoidedPaths = [];
-
-    /**
-     * Field types to avoid the sub paths/fields
-     * 
-     * @private
-     * @type Array
-     */
-    var subChoiseAvoidedTypes = [
-        'time',
-        'date',
-        'datetime',
-        'birthday'
-    ];
-
-    /**
-     * Names to avoid the form containers
-     * 
-     * @private
-     * @type Array
-     */
-    var formContainerNames = [
-        '_form',
-        'form_'
-    ];
     
     /**
      * Create all the fields
@@ -89,10 +85,10 @@
         //drill the array object
         $.each(options.object, function(key, value) {
             //it's first element and a form
-            if (key === 0 && !checkField(value)) {
+            if (key === 0 && !checkField(value, options)) {
                 generatedForm.addClass('sfvp-form');
                 return true;
-            } else if (checkField(value)) {
+            } else if (checkField(value, options)) {
                 generatedForm.append(addField(value));
             }
         });
@@ -103,19 +99,19 @@
      * 
      * @private
      * @param {Object} field
+     * @param {Array} options
      * @returns {Boolean}
      */
-    function checkField(field) {
+    function checkField(field, options) {
         //workaround repeated fields
         if ($.inArray(field.fullPathName, checkedPaths) > -1) {
             return false;
         }
         checkedPaths.push(field.fullPathName);
-
         if (field.fullPathName[field.fullPathName.length - 1] === ']') {
 
             //check if it's just a form container
-            var isFormContainer = $.grep(formContainerNames, function(n) {
+            var isFormContainer = $.grep(options.formContainerNames, function(n) {
                 return field.type.indexOf(n) > -1;
             });
             if (isFormContainer.length) {
@@ -123,7 +119,7 @@
             }
 
             //check if it's one of the subChoiceAvoidedTypes
-            if ($.inArray(field.type, subChoiseAvoidedTypes) > -1) {
+            if ($.inArray(field.type, $.sfvp.options.subChoiseAvoidedTypes) > -1) {
                 subChoiseAvoidedPaths.push(field.fullPathName);
             } else {
                 var isChoiseAvoided = $.grep(subChoiseAvoidedPaths, function(n) {
@@ -148,7 +144,6 @@
      */
     function addField(field) {
         var el;
-
         //check kinda field
         if (typeof field.options.choices !== "undefined") {
             el = $('<select></select>');
@@ -195,23 +190,18 @@
         //add name and id
         el.attr('name', field.fullPathName);
         el.attr('id', field.fullPathName);
-
         //add constraints data
         el.data('constraints', field.constraints);
-
         //add all the options
         el.data('options', field.options);
-        
         //twB 3
         el.addClass('form-control');
-
         //create div container n label twBootstrap 3
         var label = $('<label>' + field.pathName[0] + '</label>');
         label.attr('for', field.fullPathName);
         var divFormGroup = $('<div class="form-group"></div>');
         divFormGroup.append(label);
         divFormGroup.append(el);
-
         //return the field group
         return divFormGroup;
     }
@@ -240,14 +230,13 @@
             $(generatedForm).find('[name="' + id + '"]').attr('value', value);
             id = options.object[0].type;
         }
-        
+
         //check that there is data
         if (typeof options.object[0].options.data === 'undefined' || typeof options.object[0].options.data.length !== 'undefined' && !options.object[0].options.data.length) {
             return;
         }
-        
+
         var id = options.object[0].type;
-        
         //drill deep, find its element and fill it
         doDrill(options.object[0].options.data);
     }
