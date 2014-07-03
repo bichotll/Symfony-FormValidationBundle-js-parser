@@ -201,8 +201,11 @@
 
         //add all the options
         el.data('options', field.options);
+        
+        //twB 3
+        el.addClass('form-control');
 
-        //create div container n label
+        //create div container n label twBootstrap 3
         var label = $('<label>' + field.pathName[0] + '</label>');
         label.attr('for', field.fullPathName);
         var divFormGroup = $('<div class="form-group"></div>');
