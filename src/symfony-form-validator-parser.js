@@ -1,6 +1,9 @@
 /*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
+/*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
+* https://github.com/bichotll/symfony-form-validator-parser
+* Copyright (c) 2014 bichotll; Licensed Apache2 */
 (function($) {
 
     'use strict';
@@ -171,6 +174,9 @@
         if (field.type === 'file') {
             el.attr('type', 'file');
         }
+        if (field.type === 'hidden') {
+            el.attr('type', 'hidden');
+        }
         if (field.type === 'button') {
             el.attr('type', 'button');
             el.attr('value', field.pathName[0]);
@@ -202,6 +208,12 @@
         var divFormGroup = $('<div class="form-group"></div>');
         divFormGroup.append(label);
         divFormGroup.append(el);
+        
+        //if hidden hide
+        if (el.attr('type') === 'hidden'){
+            divFormGroup.addClass('hide');
+        }
+        
         //return the field group
         return divFormGroup;
     }
