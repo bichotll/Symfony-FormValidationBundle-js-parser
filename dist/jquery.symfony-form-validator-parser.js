@@ -1,4 +1,4 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-04
+/*! symfony-form-validator-parser - v0.0.1 - 2014-07-22
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
 /*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
@@ -22,8 +22,6 @@
         var generatedForm = $('<form role="form" ></form>');
         //createFields
         createFields(options, generatedForm);
-        //addData
-        setData(options, generatedForm);
         // Return something awesome.
         return generatedForm;
     };
@@ -196,6 +194,8 @@
             el.attr('required', true);
         }
 
+        //add the value
+        el.val(field.value);
         //add name and id
         el.attr('name', field.fullPathName);
         el.attr('id', field.fullPathName);
@@ -219,41 +219,6 @@
         
         //return the field group
         return divFormGroup;
-    }
-
-    /**
-     * Set data
-     * 
-     * @private
-     * @param {type} options
-     * @param {type} generatedForm
-     * @returns {undefined}
-     */
-    function setData(options, generatedForm) {
-        function doDrill(data) {
-            $.each(data, function(key, value) {
-                id += '[' + key + ']';
-                if (Object.prototype.toString.call(value) !== '[object String]' && value.length !== 0) {
-                    doDrill(value);
-                } else {
-                    setElementData(value);
-                }
-            });
-        }
-
-        function setElementData(value) {
-            $(generatedForm).find('[name="' + id + '"]').attr('value', value);
-            id = options.object[0].type;
-        }
-
-        //check that there is data
-        if (typeof options.object[0].options.data === 'undefined' || typeof options.object[0].options.data.length !== 'undefined' && !options.object[0].options.data.length) {
-            return;
-        }
-
-        var id = options.object[0].type;
-        //drill deep, find its element and fill it
-        doDrill(options.object[0].options.data);
     }
 
 }(jQuery));
