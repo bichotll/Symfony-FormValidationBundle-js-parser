@@ -1,12 +1,15 @@
 /*! symfony-form-validator-parser - v0.0.1 - 2014-07-23
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
+/*! symfony-form-validator-parser - v0.0.1 - 2014-07-22
+ * https://github.com/bichotll/symfony-form-validator-parser
+ * Copyright (c) 2014 bichotll; Licensed Apache2 */
 /*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
-* https://github.com/bichotll/symfony-form-validator-parser
-* Copyright (c) 2014 bichotll; Licensed Apache2 */
+ * https://github.com/bichotll/symfony-form-validator-parser
+ * Copyright (c) 2014 bichotll; Licensed Apache2 */
 /*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
-* https://github.com/bichotll/symfony-form-validator-parser
-* Copyright (c) 2014 bichotll; Licensed Apache2 */
+ * https://github.com/bichotll/symfony-form-validator-parser
+ * Copyright (c) 2014 bichotll; Licensed Apache2 */
 (function($) {
 
     'use strict';
@@ -20,8 +23,10 @@
         }
 
         var generatedForm = $('<form role="form" ></form>');
+        
         //createFields
         createFields(options, generatedForm);
+
         // Return something awesome.
         return generatedForm;
     };
@@ -60,23 +65,7 @@
             'birthday'
         ]
     };
-    
-    /**
-     * Already checked paths. Workaround for repeated fields
-     * 
-     * @private
-     * @type Array
-     */
-    var checkedPaths = [];
-    
-    /**
-     * Time paths. Used to don't drill the subChoise paths like time field types.
-     * 
-     * @private
-     * @type array
-     */
-    var subChoiseAvoidedPaths = [];
-    
+
     /**
      * Create all the fields
      * 
@@ -86,13 +75,29 @@
      * @returns {undefined}
      */
     function createFields(options, generatedForm) {
+        /**
+         * Already checked paths. Workaround for repeated fields
+         * 
+         * @private
+         * @type Array
+         */
+        var checkedPaths = [];
+
+        /**
+         * Time paths. Used to don't drill the subChoise paths like time field types.
+         * 
+         * @private
+         * @type array
+         */
+        var subChoiseAvoidedPaths = [];
+
         //drill the array object
         $.each(options.object, function(key, value) {
             //it's first element and a form
-            if (key === 0 && !checkField(value, options)) {
+            if (key === 0 && !checkField(value, options, checkedPaths, subChoiseAvoidedPaths)) {
                 generatedForm.addClass('sfvp-form');
                 return true;
-            } else if (checkField(value, options)) {
+            } else if (checkField(value, options, checkedPaths, subChoiseAvoidedPaths)) {
                 generatedForm.append(addField(value));
             }
         });
@@ -104,9 +109,11 @@
      * @private
      * @param {Object} field
      * @param {Array} options
+     * @param {Array} checkedPaths
+     * @param {Array} subChoiseAvoidedPaths
      * @returns {Boolean}
      */
-    function checkField(field, options) {
+    function checkField(field, options, checkedPaths, subChoiseAvoidedPaths) {
         //workaround repeated fields
         if ($.inArray(field.fullPathName, checkedPaths) > -1) {
             return false;
@@ -195,7 +202,7 @@
         }
 
         //add the value
-        if (field.value !== null){
+        if (field.value !== null) {
             el.val(field.value);
         }
         //add name and id
@@ -213,12 +220,12 @@
         var divFormGroup = $('<div class="form-group"></div>');
         divFormGroup.append(label);
         divFormGroup.append(el);
-        
+
         //if hidden hide
-        if (el.attr('type') === 'hidden'){
+        if (el.attr('type') === 'hidden') {
             divFormGroup.addClass('hide');
         }
-        
+
         //return the field group
         return divFormGroup;
     }
