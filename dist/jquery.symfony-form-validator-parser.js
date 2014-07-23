@@ -1,4 +1,4 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-22
+/*! symfony-form-validator-parser - v0.0.1 - 2014-07-23
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
 /*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
@@ -195,7 +195,9 @@
         }
 
         //add the value
-        el.val(field.value);
+        if (field.value !== null){
+            el.val(field.value);
+        }
         //add name and id
         el.attr('name', field.fullPathName);
         el.attr('id', field.fullPathName);

@@ -192,7 +192,9 @@
         }
 
         //add the value
-        el.val(field.value);
+        if (field.value !== null){
+            el.val(field.value);
+        }
         //add name and id
         el.attr('name', field.fullPathName);
         el.attr('id', field.fullPathName);
