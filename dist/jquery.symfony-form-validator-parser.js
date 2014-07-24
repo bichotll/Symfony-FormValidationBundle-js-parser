@@ -1,15 +1,10 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-23
+/*! symfony-form-validator-parser - v0.0.1 - 2014-07-24
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-22
+/*! symfony-form-validator-parser - v0.0.1 - 2014-07-23
  * https://github.com/bichotll/symfony-form-validator-parser
  * Copyright (c) 2014 bichotll; Licensed Apache2 */
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
- * https://github.com/bichotll/symfony-form-validator-parser
- * Copyright (c) 2014 bichotll; Licensed Apache2 */
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-03
- * https://github.com/bichotll/symfony-form-validator-parser
- * Copyright (c) 2014 bichotll; Licensed Apache2 */
+
 (function($) {
 
     'use strict';
@@ -23,7 +18,7 @@
         }
 
         var generatedForm = $('<form role="form" ></form>');
-        
+
         //createFields
         createFields(options, generatedForm);
 
@@ -98,7 +93,7 @@
                 generatedForm.addClass('sfvp-form');
                 return true;
             } else if (checkField(value, options, checkedPaths, subChoiseAvoidedPaths)) {
-                generatedForm.append(addField(value));
+                generatedForm.append(addField(value, options));
             }
         });
     }
@@ -130,7 +125,7 @@
             }
 
             //check if it's one of the subChoiceAvoidedTypes
-            if ($.inArray(field.type, options.subChoiseAvoidedTypes) > -1) {
+            if ($.inArray(field.type, options.subChoiseAvoidedTypes) > 1) {
                 subChoiseAvoidedPaths.push(field.fullPathName);
             } else {
                 var isChoiseAvoided = $.grep(subChoiseAvoidedPaths, function(n) {
@@ -151,9 +146,10 @@
      * 
      * @private
      * @param {Object} field
+     * @param {Object} options
      * @returns {Object}
      */
-    function addField(field) {
+    function addField(field, options) {
         var el;
         //check kinda field
         if (typeof field.options.choices !== "undefined") {
@@ -203,7 +199,14 @@
 
         //add the value
         if (field.value !== null) {
-            el.val(field.value);
+            //if its an object
+            if ($.inArray(field.type, options.subChoiseAvoidedTypes) > 1) {
+                if (field.type === 'datetime'){
+                    el.val(field.value.date);
+                }
+            } else {
+                el.val(field.value);
+            }
         }
         //add name and id
         el.attr('name', field.fullPathName);
