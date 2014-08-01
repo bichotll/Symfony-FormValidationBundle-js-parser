@@ -64,6 +64,9 @@ $.get( "entity/getFormInfo", function( data ) {
 
 ## Release History
 
+###1.2.0
+ - added support for entity type creating select with its options
+
 ###1.1.0
  - changed the way it handles the data (field values). Compatible with FormValidationBundle 1.2.0
 

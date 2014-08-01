@@ -1,10 +1,9 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-24
+/*! symfony-form-validator-parser - v0.0.1 - 2014-08-01
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
-/*! symfony-form-validator-parser - v0.0.1 - 2014-07-23
+/*! symfony-form-validator-parser - 2014-07-03
  * https://github.com/bichotll/symfony-form-validator-parser
  * Copyright (c) 2014 bichotll; Licensed Apache2 */
-
 (function($) {
 
     'use strict';
@@ -156,12 +155,34 @@
             el = $('<select></select>');
             //add option elements
             $.each(field.options.choices, function(key, value) {
-                el.append($('<option value="' + key + '" >' + value + '</option>'));
+                el.append($('<option value="' + value.id + '" >' + value.value + '</option>'));
             });
         } else if (field.type === "textarea") {
             el = $('<textarea></textarea>');
+        } else if (field.type === "entity") {
+            el = $('<select></select>');
+            //add option elements
+            $.each(field.dataEntityChoice, function(key, value) {
+                el.append($('<option value="' + value.id + '" >' + value.value + '</option>'));
+            });
         } else {
             el = $('<input></input>');
+        }
+        
+        //select options
+        if (typeof field.options.choices !== "undefined" || field.type === "entity"){
+            if (Object.prototype.toString.call( field.value ) === '[object Array]') {
+                $.each(field.value, function(key, value) {
+                    el.children("option[value='" + value.id + "']").prop("selected", true);
+                });
+            } else {
+                el.children("option[value='" + field.value.id + "']").prop("selected", true);
+            }
+        }
+
+        //check if multiple
+        if (field.options.multiple === true) {
+            el.attr('multiple', 'multiple');
         }
 
         //check the field type
@@ -201,7 +222,7 @@
         if (field.value !== null) {
             //if its an object
             if ($.inArray(field.type, options.subChoiseAvoidedTypes) > 1) {
-                if (field.type === 'datetime'){
+                if (field.type === 'datetime') {
                     el.val(field.value.date);
                 }
             } else {
