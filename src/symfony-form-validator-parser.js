@@ -176,7 +176,9 @@
                 });
             } else {
                 if (typeof field.value !== 'undefined' && typeof field.value.id !== 'undefined') {
-                    el.children("option[value='" + field.value.id + "']").prop("selected", true);
+                    var option = el.children("option[value='" + field.value.id + "']");
+                    option.prop("selected", true);
+                    option.detach().prependTo(el);
                 }
             }
         }
