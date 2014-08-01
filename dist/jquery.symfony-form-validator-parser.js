@@ -168,15 +168,19 @@
         } else {
             el = $('<input></input>');
         }
-        
+
         //select options
-        if (typeof field.options.choices !== "undefined" || field.type === "entity"){
-            if (Object.prototype.toString.call( field.value ) === '[object Array]') {
+        if (typeof field.options.choices !== "undefined" || field.type === "entity") {
+            if (Object.prototype.toString.call(field.value) === '[object Array]') {
                 $.each(field.value, function(key, value) {
-                    el.children("option[value='" + value.id + "']").prop("selected", true);
+                    if (typeof value !== 'undefined' && typeof value.id !== 'undefined') {
+                        el.children("option[value='" + value.id + "']").prop("selected", true);
+                    }
                 });
             } else {
-                el.children("option[value='" + field.value.id + "']").prop("selected", true);
+                if (typeof field.value !== 'undefined' && typeof field.value.id !== 'undefined') {
+                    el.children("option[value='" + field.value.id + "']").prop("selected", true);
+                }
             }
         }
 
