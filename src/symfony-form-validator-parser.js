@@ -176,9 +176,7 @@
                 });
             } else {
                 if (typeof field.value !== 'undefined' && typeof field.value.id !== 'undefined') {
-                    var option = el.children("option[value='" + field.value.id + "']");
-                    option.prop("selected", true);
-                    option.detach().prependTo(el);
+                    el.children("option[value='" + field.value.id + "']").prop("selected", true);
                 }
             }
         }
@@ -222,7 +220,7 @@
         }
 
         //add the value
-        if (field.value !== null) {
+        if (field.value !== null && field.type !== "entity") {
             //if its an object
             if ($.inArray(field.type, options.subChoiseAvoidedTypes) > 1) {
                 if (field.type === 'datetime') {
