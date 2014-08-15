@@ -1,4 +1,4 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-08-06
+/*! symfony-form-validator-parser - v0.0.1 - 2014-08-15
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
 /*! symfony-form-validator-parser - 2014-07-03
@@ -236,6 +236,13 @@
         //add name and id
         el.attr('name', field.fullPathName);
         el.attr('id', field.fullPathName);
+
+        //check if multiple
+        if (field.options.multiple === true) {
+            el.attr('id', el.attr('id') + "[]");
+            el.attr('name', el.attr('name') + "[]");
+        }
+        
         //add constraints data
         el.data('constraints', field.constraints);
         //add all the options

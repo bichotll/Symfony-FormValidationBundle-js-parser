@@ -1,6 +1,3 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-08-01
- * https://github.com/bichotll/symfony-form-validator-parser
- * Copyright (c) 2014 bichotll; Licensed Apache2 */
 /*! symfony-form-validator-parser - 2014-07-03
  * https://github.com/bichotll/symfony-form-validator-parser
  * Copyright (c) 2014 bichotll; Licensed Apache2 */
@@ -169,11 +166,6 @@
             el = $('<input></input>');
         }
 
-        //check if multiple
-        if (field.options.multiple === true) {
-            el.attr('multiple', 'multiple');
-        }
-
         //select options
         if (typeof field.options.choices !== "undefined" || field.type === "entity") {
             if (Object.prototype.toString.call(field.value) === '[object Array]') {
@@ -187,6 +179,11 @@
                     el.children("option[value='" + field.value.id + "']").prop("selected", true);
                 }
             }
+        }
+
+        //check if multiple
+        if (field.options.multiple === true) {
+            el.attr('multiple', 'multiple');
         }
 
         //check the field type
@@ -234,13 +231,15 @@
             }
         }
         //add name and id
-        if (field.options.multiple === true) {
-            el.attr('name', field.fullPathName + '[]');
-        }
-        else {
-            el.attr('name', field.fullPathName);
-        }
+        el.attr('name', field.fullPathName);
         el.attr('id', field.fullPathName);
+
+        //check if multiple
+        if (field.options.multiple === true) {
+            el.attr('id', el.attr('id') + "[]");
+            el.attr('name', el.attr('name') + "[]");
+        }
+        
         //add constraints data
         el.data('constraints', field.constraints);
         //add all the options
@@ -263,5 +262,4 @@
         return divFormGroup;
     }
 
-}(jQuery)
-        );
+}(jQuery));
