@@ -1,4 +1,4 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-08-15
+/*! symfony-form-validator-parser - v0.0.1 - 2014-08-16
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
 /*! symfony-form-validator-parser - 2014-07-03
@@ -155,7 +155,11 @@
             el = $('<select></select>');
             //add option elements
             $.each(field.options.choices, function(key, value) {
-                el.append($('<option value="' + value.id + '" >' + value.value + '</option>'));
+                if (typeof value.id !== "undefined") {
+                    el.append($('<option value="' + value.id + '" >' + value.value + '</option>'));
+                } else {
+                    el.append($('<option value="' + key + '" >' + value + '</option>'));
+                }
             });
         } else if (field.type === "textarea") {
             el = $('<textarea></textarea>');
@@ -242,7 +246,7 @@
             el.attr('id', el.attr('id') + "[]");
             el.attr('name', el.attr('name') + "[]");
         }
-        
+
         //add constraints data
         el.data('constraints', field.constraints);
         //add all the options
