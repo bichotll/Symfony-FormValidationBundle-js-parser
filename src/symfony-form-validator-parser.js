@@ -152,7 +152,11 @@
             el = $('<select></select>');
             //add option elements
             $.each(field.options.choices, function(key, value) {
-                el.append($('<option value="' + value.id + '" >' + value.value + '</option>'));
+                if (typeof value.id !== "undefined") {
+                    el.append($('<option value="' + value.id + '" >' + value.value + '</option>'));
+                } else {
+                    el.append($('<option value="' + key + '" >' + value + '</option>'));
+                }
             });
         } else if (field.type === "textarea") {
             el = $('<textarea></textarea>');
@@ -239,7 +243,7 @@
             el.attr('id', el.attr('id') + "[]");
             el.attr('name', el.attr('name') + "[]");
         }
-        
+
         //add constraints data
         el.data('constraints', field.constraints);
         //add all the options
