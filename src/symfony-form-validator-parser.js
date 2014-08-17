@@ -1,6 +1,3 @@
-/*! symfony-form-validator-parser - 2014-07-03
- * https://github.com/bichotll/symfony-form-validator-parser
- * Copyright (c) 2014 bichotll; Licensed Apache2 */
 (function($) {
 
     'use strict';
@@ -231,7 +228,11 @@
                     el.val(field.value.date);
                 }
             } else {
-                el.val(field.value);
+                if (field.type === "checkbox" || field.type === "radio") {
+                    el.prop('checked', field.value);
+                } else {
+                    el.val(field.value);
+                }
             }
         }
         //add name and id
