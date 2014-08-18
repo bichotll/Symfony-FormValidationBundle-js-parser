@@ -180,10 +180,8 @@
                         el.children("option[value='" + value.id + "']").prop("selected", true);
                     }
                 });
-            } else {
-                if (typeof field.value !== 'undefined' && typeof field.value.id !== 'undefined') {
-                    el.children("option[value='" + field.value.id + "']").prop("selected", true);
-                }
+            } else if (field.value !== null && typeof field.value !== 'undefined' && typeof field.value.id !== 'undefined') {
+                el.children("option[value='" + field.value.id + "']").prop("selected", true);
             }
         }
 
