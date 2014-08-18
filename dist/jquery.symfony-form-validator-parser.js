@@ -1,9 +1,6 @@
-/*! symfony-form-validator-parser - v0.0.1 - 2014-08-16
+/*! symfony-form-validator-parser - v0.0.1 - 2014-08-18
 * https://github.com/bichotll/symfony-form-validator-parser
 * Copyright (c) 2014 bichotll; Licensed Apache2 */
-/*! symfony-form-validator-parser - 2014-07-03
- * https://github.com/bichotll/symfony-form-validator-parser
- * Copyright (c) 2014 bichotll; Licensed Apache2 */
 (function($) {
 
     'use strict';
@@ -173,6 +170,11 @@
             el = $('<input></input>');
         }
 
+        //check if multiple
+        if (field.options.multiple === true) {
+            el.attr('multiple', 'multiple');
+        }
+
         //select options
         if (typeof field.options.choices !== "undefined" || field.type === "entity") {
             if (Object.prototype.toString.call(field.value) === '[object Array]') {
@@ -186,11 +188,6 @@
                     el.children("option[value='" + field.value.id + "']").prop("selected", true);
                 }
             }
-        }
-
-        //check if multiple
-        if (field.options.multiple === true) {
-            el.attr('multiple', 'multiple');
         }
 
         //check the field type
@@ -234,7 +231,11 @@
                     el.val(field.value.date);
                 }
             } else {
-                el.val(field.value);
+                if (field.type === "checkbox") {
+                    el.prop('checked', field.value);
+                } else {
+                    el.val(field.value);
+                }
             }
         }
         //add name and id

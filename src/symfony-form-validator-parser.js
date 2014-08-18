@@ -167,6 +167,11 @@
             el = $('<input></input>');
         }
 
+        //check if multiple
+        if (field.options.multiple === true) {
+            el.attr('multiple', 'multiple');
+        }
+
         //select options
         if (typeof field.options.choices !== "undefined" || field.type === "entity") {
             if (Object.prototype.toString.call(field.value) === '[object Array]') {
@@ -180,11 +185,6 @@
                     el.children("option[value='" + field.value.id + "']").prop("selected", true);
                 }
             }
-        }
-
-        //check if multiple
-        if (field.options.multiple === true) {
-            el.attr('multiple', 'multiple');
         }
 
         //check the field type
@@ -228,7 +228,7 @@
                     el.val(field.value.date);
                 }
             } else {
-                if (field.type === "checkbox" || field.type === "radio") {
+                if (field.type === "checkbox") {
                     el.prop('checked', field.value);
                 } else {
                     el.val(field.value);
